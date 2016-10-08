@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/08 14:18:52 by emsimang          #+#    #+#             */
-/*   Updated: 2016/10/08 14:30:07 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/10/08 16:57:37 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ int	mouse_event(int keycode, int x, int y, t_draw *draw)
 int	key_press(int keycode, t_draw *draw)
 {
 	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_window(draw->m_ptr, draw->w_ptr);
 		exit(0);
+	}
 	return (1);
 }

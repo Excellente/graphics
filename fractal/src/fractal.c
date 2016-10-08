@@ -6,48 +6,24 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 14:42:33 by emsimang          #+#    #+#             */
-/*   Updated: 2016/10/08 15:22:33 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/10/08 17:04:08 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractal.h"
 
-void	draw_sierpinski(void *m_ptr, void *w_ptr, float zoom)
+int	is_valid(char *fract)
 {
+	int	res;
 
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < HEIGHT)
-	{
-		x = 0;
-		while (x < WIDTH)
-		{
-			if (!((x / 1) % 3 == 1 && (y / 1) % 3 == 1)
-			
-				&& 
-			
-				!((x / 3) % 3 == 1 && (y / 3) % 3 == 1) 
-				
-				&&
-				
-				!((x / 9) % 3 == 1 && (y / 9) % 3 == 1)
-				
-				&&
-				
-				!((x / 27) % 3 == 1 && (y / 27) % 3 == 1)
-				
-				&&
-				
-				!((x / 81) % 3 == 1 && (y / 81) % 3 == 1)
-
-				)
-				mlx_pixel_put(m_ptr, w_ptr, x, y, color_palette(x + y));
-			x++;
-		}
-		y++;
-	}
+	res = 0;
+	if (strcmp(fract, "julia") == 0)
+		res = 1;
+	else if (strcmp(fract, "mendelbrot") == 0)
+		res = 1;
+	else if (strcmp(fract, "sierpinski") == 0)
+		res = 1;
+	return (res);
 }
 
 void	draw_fractal(void *m_ptr, void *w_ptr, float zoom, char *fract, float x, float y)
@@ -66,7 +42,7 @@ int main(int ac, char **av)
 {
 	t_draw	draw;
 
-	if (ac == 2)
+	if (ac == 2 && is_valid(av[1]))
 	{
 		draw.zoom = 1.0f;
 		draw.fractal = av[1];
@@ -78,6 +54,6 @@ int main(int ac, char **av)
 		mlx_loop(draw.m_ptr);
 	}
 	else
-		printf("parameters: julia | mendelbrot | sierpinski\n");
+		printf("error: allowed parameters: julia | mendelbrot | sierpinski\n");
 	return (0);
 }

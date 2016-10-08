@@ -6,7 +6,7 @@
 /*   By: emsimang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/08 11:12:02 by emsimang          #+#    #+#             */
-/*   Updated: 2016/10/08 15:44:36 by emsimang         ###   ########.fr       */
+/*   Updated: 2016/10/08 16:51:35 by emsimang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef	struct	s_mendel
 int		key_press(int k, t_draw *d);
 int     color_palette(int c);
 int		mouse_event(int keycode, int x, int y, t_draw *d);
+void	draw_sierpinski(void *m, void *w, float zoom);
 void    draw_julia(void *m_ptr, void *w_ptr, float zoom);
 void    draw_mendelbrot(void *m_ptr, void *w_ptr, float zoom, float x, float y);
 void    draw_fractal(void *m_ptr, void *w_ptr, float zoom, char *fract, float x, float y);
