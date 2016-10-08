@@ -1,0 +1,24 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    MakeFile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: emsimang <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2016/10/08 15:49:33 by emsimang          #+#    #+#              #
+#    Updated: 2016/10/08 16:21:11 by emsimang         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+SRC = fractal.c color.c mendelbrot.c event_handler.c julia.c
+OBJ = $(SRC:.c=.o)
+INCLUDE = include/
+
+SRC_DIR = src/
+OBJ_DIR = obj/
+
+SRCS = addprefix($(),)
+
+all: $(CC) 
